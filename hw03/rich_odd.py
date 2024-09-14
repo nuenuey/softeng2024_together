@@ -6,9 +6,7 @@ from rich.text import Text
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 
-
 console = Console()
-
 
 def is_even(n: int) -> bool:
     return n % 2 == 0
@@ -25,11 +23,8 @@ def main():
         else:
             result = "홀수"
 
-        messagebox.showinfo("결과", f"{n}은 {result}입니다.")
-
     # Rich
     console.print(Panel("💡 [bold yellow]홀짝 판별 프로그램[/bold yellow] 💡", expand=False))
-
 
     if is_even(n):
         result = Text(f"{n}은 짝수입니다.", style="bold blue")
