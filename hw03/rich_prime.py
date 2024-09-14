@@ -1,0 +1,46 @@
+import tkinter as tk
+from rich.console import Console
+from rich.panel import Panel
+from rich.text import Text
+
+console = Console()
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def show_console_result(message: str):
+    console.print(Panel(Text(message, style="bold cyan")))
+
+def isPrime():
+    n = int(input_entry.get())
+    if n >= 0:
+        if is_prime(n):
+            result_text = f"{n}은 소수입니다."
+        else:
+            result_text = f"{n}은 소수가 아닙니다."
+        show_console_result(result_text)
+        window.destroy()
+
+def main():
+    global input_entry, window
+    
+    window = tk.Tk()
+    window.title("소수 판별기")
+    window.geometry("300x100")
+    
+    tk.Label(window, text="숫자를 입력하세요:", padx=20, pady=10).pack()
+    
+    input_entry = tk.Entry(window)
+    input_entry.pack(pady=(0, 10))
+    
+    tk.Button(window, text="제출", command=isPrime).pack()
+    
+    window.mainloop()
+
+if __name__ == "__main__":
+    main()
