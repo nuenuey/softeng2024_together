@@ -1,37 +1,51 @@
+import tkinter as tk
 from rich.console import Console
-from rich.prompt import Prompt
 from rich.panel import Panel
 from rich.text import Text
 
-import tkinter as tk
-from tkinter import simpledialog, messagebox
-
 console = Console()
+
 
 def is_even(n: int) -> bool:
     return n % 2 == 0
 
-def main():
 
-    window = tk.Tk()
-    window.withdraw()
-    n = simpledialog.askinteger("홀짝을 판별하는 프로그램", "숫자를 입력하시오:")
+def show_result(message: str):
+    console.print(Panel(':melon: 홀짝 판별 프로그램 :melon:', border_style="bold green", expand=False))
+    console.print(message, style="bold green")
 
-    if n is not None:
+
+def show():
+    try:
+        n = int(input_entry.get())
         if is_even(n):
             result = "짝수"
         else:
             result = "홀수"
+        message = f"{n}은 {result}입니다."
+        show_result(message)
+    except ValueError:
+        show_result("올바른 숫자를 입력하세요.")
 
-    # Rich
-    console.print(Panel("💡 [bold yellow]홀짝 판별 프로그램[/bold yellow] 💡", expand=False))
+    window.destroy()
 
-    if is_even(n):
-        result = Text(f"{n}은 짝수입니다.", style="bold blue")
-    else:
-        result = Text(f"{n}은 홀수입니다.", style="bold magenta")
 
-    console.print(result)
+def main():
+    global window, input_entry
+
+    window = tk.Tk()
+    window.title("홀짝 판별 프로그램")
+    window.geometry("300x100")
+
+    tk.Label(window, text="숫자를 입력하세요:", padx=20, pady=10).pack()
+
+    input_entry = tk.Entry(window)
+    input_entry.pack(pady=(0, 10))
+
+    tk.Button(window, text="결과 보기", command=show).pack()
+
+    window.mainloop()
+
 
 if __name__ == "__main__":
     main()
