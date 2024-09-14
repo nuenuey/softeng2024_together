@@ -14,8 +14,9 @@ def is_prime(n: int) -> bool:
     return True
 
 def show_result(message: str):
-    console.print(Panel("💡 [bold red]소수 판별 프로그램[/bold red] 💡", expand=False))
-    console.print(message, style="bold blue")
+    console.print(Panel("🍇 [bold magenta]소수 판별 프로그램[/bold magenta] 🍇",
+                        border_style='magenta', expand=False))
+    console.print(message, style="bold magenta")
 
 def show():
     n = int(input_entry.get())
