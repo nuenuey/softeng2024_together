@@ -12,7 +12,8 @@ def factorial(n: int) -> int:
         return n * factorial(n - 1)
 
 def show_result(message: str):
-    console.print(Panel(Text(message, style="bold cyan")))
+    console.print(Panel("💡 [bold red]팩토리얼 구하는 프로그램[/bold red] 💡", expand=False))
+    console.print(message, style="bold blue")
 
 def show():
     n = int(input_entry.get())
@@ -35,7 +36,7 @@ def main():
     input_entry = tk.Entry(window)
     input_entry.pack(pady=(0, 10))
     
-    tk.Button(window, text="제출", command=show).pack()
+    tk.Button(window, text="결과 보기", command=show).pack()
     
     window.mainloop()
 
