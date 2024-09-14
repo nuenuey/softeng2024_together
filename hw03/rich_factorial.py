@@ -14,7 +14,7 @@ def factorial(n: int) -> int:
 def show_result(message: str):
     console.print(Panel(Text(message, style="bold cyan")))
 
-def on_submit():
+def show():
     n = int(input_entry.get())
     if n >= 0:
         result = factorial(n)
@@ -35,7 +35,7 @@ def main():
     input_entry = tk.Entry(window)
     input_entry.pack(pady=(0, 10))
     
-    tk.Button(window, text="제출", command=on_submit).pack()
+    tk.Button(window, text="제출", command=show).pack()
     
     window.mainloop()
 
