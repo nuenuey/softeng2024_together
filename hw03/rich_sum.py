@@ -16,7 +16,8 @@ def calculate_even_sum() -> int:
     return total
 
 def show_result(message: str):
-    console.print(Panel(Text(message, style="bold green")))
+    console.print(Panel("💡 [bold red]1부터 100까지 짝수 합[/bold red] 💡", expand=False))
+    console.print(message, style="bold blue")
 
 def show():
     total = calculate_even_sum()
@@ -32,9 +33,10 @@ def main():
     window.geometry("300x100")
     
     tk.Label(window, text="1부터 100까지의 짝수 합을 계산합니다.", padx=20, pady=10).pack()
-    tk.Button(window, text="결과", command=show).pack(pady=10)
+    tk.Button(window, text="결과 보기", command=show).pack(pady=10)
     
     window.mainloop()
+
 
 if __name__ == "__main__":
     main()
