@@ -13,17 +13,17 @@ def is_prime(n: int) -> bool:
             return False
     return True
 
-def show_console_result(message: str):
+def show_result(message: str):
     console.print(Panel(Text(message, style="bold cyan")))
 
-def isPrime():
+def show():
     n = int(input_entry.get())
     if n >= 0:
         if is_prime(n):
             result_text = f"{n}은 소수입니다."
         else:
             result_text = f"{n}은 소수가 아닙니다."
-        show_console_result(result_text)
+        show_result(result_text)
         window.destroy()
 
 def main():
@@ -38,7 +38,7 @@ def main():
     input_entry = tk.Entry(window)
     input_entry.pack(pady=(0, 10))
     
-    tk.Button(window, text="제출", command=isPrime).pack()
+    tk.Button(window, text="제출", command=show).pack()
     
     window.mainloop()
 
