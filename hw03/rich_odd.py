@@ -11,9 +11,8 @@ def is_even(n: int) -> bool:
 
 
 def show_result(message: str):
-    console.print(Panel(':melon: 홀짝 판별 프로그램 :melon:', border_style="bold green", expand=False))
+    console.print(Panel(':melon: [bold green]홀짝 판별 프로그램[/bold green] :melon:', border_style="green", expand=False))
     console.print(message, style="bold green")
-
 
 def show():
     try:

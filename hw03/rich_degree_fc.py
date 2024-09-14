@@ -11,9 +11,9 @@ def f2c(temp_f: float) -> float:
 
 
 def show_result(message: str):
-    console.print(Panel(':pineapple: 화씨-섭씨 변환 프로그램 :pineapple:',border_style="bold yellow", expand=False))
+    console.print(Panel(':pineapple: [bold yellow]화씨-섭씨 변환 프로그램 [/bold yellow] :pineapple:', border_style="yellow", expand=False))
     console.print(message, style="bold yellow")
-
+    
 
 def show():
     try:

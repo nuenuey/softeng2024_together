@@ -16,9 +16,9 @@ def calculate_even_sum() -> int:
     return total
 
 def show_result(message: str):
-    console.print(Panel("🥝 [bold green]1부터 100까지 짝수 합[/bold green] 🥝",
-                        border_style="green", expand=False))
-    console.print(message, style="bold green")
+    console.print(Panel(":apple: [bold red]1부터 100까지 짝수 합[/bold red] :apple:",
+                        border_style="red", expand=False))
+    console.print(message, style="bold red")
 
 def show():
     total = calculate_even_sum()
