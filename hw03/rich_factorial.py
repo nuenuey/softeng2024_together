@@ -12,8 +12,9 @@ def factorial(n: int) -> int:
         return n * factorial(n - 1)
 
 def show_result(message: str):
-    console.print(Panel("💡 [bold red]팩토리얼 구하는 프로그램[/bold red] 💡", expand=False))
-    console.print(message, style="bold blue")
+    console.print(Panel("🍌 [bold yellow]팩토리얼 구하는 프로그램[/bold yellow] 🍌",
+                        border_style="yellow", expand=False))
+    console.print(message, style="bold yellow")
 
 def show():
     n = int(input_entry.get())
