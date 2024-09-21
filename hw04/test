@@ -3,7 +3,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 @app.route("/")  # 기본 페이지
-def index():
+def dd():
     return """
     <!DOCTYPE html>
     <html lang="kr">
@@ -23,7 +23,7 @@ def index():
     </html>
     """
 
-@app.route("/time")
+@app.route("/time") # 시차 계산
 def time():
     inputTime = request.args.get("time")
 
