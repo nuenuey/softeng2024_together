@@ -1,1 +1,51 @@
+from flask import Flask, request
 
+app = Flask(__name__)
+
+@app.route("/")  # 기본 페이지
+def index():
+    return """
+    <!DOCTYPE html>
+    <html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <title>세계 시간 계산기</title>
+    </head>
+    <body>
+        <h1>세계 시간 계산기</h1>
+        <form action="/time" method="GET">
+            <label> 시각 입력 예시 (HHMM) :
+                <input type="text" name="time" required>
+            </label>
+            <button type="submit">결과 보기</button>
+        </form>
+    </body>
+    </html>
+    """
+
+@app.route("/time")
+def time():
+    inputTime = request.args.get("time")
+
+    hour = int(inputTime[:2]) 
+    minute = int(inputTime[2:]) 
+
+    tokyo = f"{hour}시 {minute}분"
+    shanghai = f"{(hour - 1) % 24}시 {minute}분" 
+    newyork = f"{(hour - 14) % 24}시 {minute}분"  
+    london = f"{(hour - 9) % 24}시 {minute}분" 
+    paris = f"{(hour - 8) % 24}시 {minute}분"  
+    berlin = f"{(hour - 8) % 24}시 {minute}분"  
+
+    return f"""
+    <p>현재 시각 (서울) : {hour}시 {minute}분</p>
+    <p>일본, 도쿄 (+0시간) : {tokyo}</p>
+    <p>중국, 상하이 (-1시간) : {shanghai}</p>
+    <p>미국, 뉴욕 (-14시간) : {newyork}</p>
+    <p>영국, 런던 (-9시간) : {london}</p>
+    <p>프랑스, 파리 (-8시간) : {paris}</p>
+    <p>독일, 베를린 (-8시간) : {berlin}</p>
+    """
+
+if __name__ == "__main__":
+    app.run(debug=True)
