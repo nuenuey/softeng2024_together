@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+구정문 맛집 : 누룩꽃 피는 날
+{% endblock %}
+
+{% block content %}
+<header id="header">
+    <h1>구정문 맛집 : 누룩꽃 피는 날</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">홈으로</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="flower" class="main style2 right dark fullscreen">
+    <div class="content box style2">
+        <header>
+            <h2>누룩꽃 피는 날</h2>
+        </header>
+        <p>은 막걸리를 파는 술집이다.</br>
+        기본 안주로 뻥튀기 아이스크림, 라면, 떡볶이가 나오는데</br> 기본 안주만으로도 양이 많고 맛있어서 유명한 집이다. </br>
+        다양한 과일 막걸리를 맛볼 수 있으며 </br></br>메인 메뉴는 마약육전과 쫄면이다.</p>
+    </div>
+</section>
+{% endblock %}

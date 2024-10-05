@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+신정문 맛집 : 금암소바
+{% endblock %}
+
+{% block content %}
+<header id="header">
+    <h1>신정문 맛집 : 금암소바</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">홈으로</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="so_ba" class="main style2 right dark fullscreen">
+    <div class="content box style2">
+        <header>
+            <h2>금암소바</h2>
+        </header>
+        <p>는 감칠맛이 나는 소바이다.</br>
+        일식소바느낌 보다는 한국식 메밀 소바의 느낌이다. 더운 여름에 인기가 많은 식당이다.</br></br>
+        소바와 콩국수를 추천하며 9000원이다.</p>
+    </div>
+</section>
+{% endblock %}

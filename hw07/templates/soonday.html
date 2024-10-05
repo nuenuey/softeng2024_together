@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+신정문 맛집 : 금암피순대
+{% endblock %}
+
+{% block content %}
+<header id="header">
+    <h1>신정문 맛집 : 금암피순대</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">홈으로</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="soonday" class="main style2 right dark fullscreen">
+    <div class="content box style2">
+        <header>
+            <h2>금암피순대</h2>
+        </header>
+        <p>는 현지인 찐맛집 피순대 국밥 맛집이다.</br>
+        피순대가 호불호가 갈리지만 국밥을 좋아한다면 </br>추천한다. 조점례 피순대가 관광객 맛집이라면 금암피순대는 현지인 맛집이다.</br></br>피순대 국밥은 9000원이다.</p>
+    </div>
+</section>
+{% endblock %}
