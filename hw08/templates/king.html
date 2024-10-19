@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+구정문 맛집 : 황제보쌈
+{% endblock %}
+
+{% block content %}
+<header id="header" class="text-center my-2">
+    <h1>구정문 맛집 : 황제보쌈</h1>
+    <nav class="navbar navbar-light justify-content-end">
+        <a class="btn btn-outline-primary" href="{{ url_for('index') }}" style="border-radius: 20px; padding: 10px 20px;">홈으로</a>
+    </nav>
+</header>
+<section id="king">
+    <div class="container">
+        <p class="text-center">황제보쌈은 전북대생이라면 모를 수가 없는 유명 맛집이다.</br>
+            밥약 장소로 가장 많이 가며 보쌈의 소스는 달달한 편이다.</br>
+            보쌈 정식이 9500원으로 저렴한 편이다.</p>
+        <div class="text-center">
+            <img src="{{ url_for('static', filename='images/king.jpg') }}" alt="황제보쌈" class="img-fluid" style="width: 100%; height: auto;">
+        </div>
+    </div>
+</section>
+{% endblock %}

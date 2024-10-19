@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    추가할 맛집 목록들
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">추가할 맛집 목록들</h1>
+        <nav class="navbar navbar-light justify-content-end">
+            <a class="btn btn-outline-primary" href="{{ url_for('index') }}" style="border-radius: 20px; padding: 10px 20px;">홈으로</a>
+        </nav>
+        {% for post in posts %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.content }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-center">게시물이 없습니다.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
