@@ -1,0 +1,25 @@
+{% extends "./layout.html" %}
+{% load static %}
+{% block title %}
+신정문 맛집 : 금암피순대
+{% endblock %}
+
+{% block content %}
+<header id="header" class="text-center my-2">
+    <h1>신정문 맛집 : 금암피순대</h1>
+    <nav class="navbar navbar-light justify-content-end">
+        <a class="btn btn-outline-primary" href="{% url 'single_pages:index' %}" style="border-radius: 20px; padding: 10px 20px;">홈으로</a>
+    </nav>
+</header>
+<section id="soonday">
+    <div class="container">
+            <p class="text-center">금암피순대는 현지인 찐맛집 피순대 국밥 맛집이다.</br>
+                피순대가 호불호가 갈리지만 국밥을 좋아한다면 </br>추천한다. 
+                조점례 피순대가 관광객 맛집이라면 금암피순대는 현지인 맛집이다.</br>
+                피순대 국밥은 9000원이다.</p>
+            <div class="text-center">
+                <img src="{% static 'single_pages/images/soonday.jpg' %}" alt="금암피순대" class="img-fluid" style="width: 100%; height: auto;">
+            </div>
+    </div>
+</section>
+{% endblock %}
