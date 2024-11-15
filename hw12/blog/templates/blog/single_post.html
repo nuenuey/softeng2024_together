@@ -1,0 +1,91 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }} - Blog{% endblock %}
+
+{% block content %}
+        <header class="mb-4">
+            {% if post.head_image %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="{{ post.title }} head image"></figure>
+            {% else %}
+                <figure class="mb-4"><img class="img-fluid rounded" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random image"></figure>
+            {% endif %}
+            <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
+        </header>
+
+        <section class="mb-5">
+
+            {% if post.hook_text %}
+                <h5 class="text-muted mb-4">{{ post.hook_text }}</h5>
+            {% endif %}
+            <p class="fs-5 mb-4">{{ post.content }}</p>
+            {% if post.file_upload %}
+            <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark mb-4" role="button" download>Download:
+                {% if post.get_file_ext == 'csv' %}
+                    <i class="fas fa-file-csv"></i>
+                {% elif  post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                    <i class="fas fa-file-excel"></i>
+                {% elif  post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                    <i class="fas fa-file-word"></i>
+                {% else %}
+                    <i class="far fa-file"></i>
+                    {% endif %}
+                {{ post.get_file_name }}
+                    </a>
+                {% endif %}
+        <div class="text-muted fst-italic mb-2">작성일: {{ post.created_at }}</div>
+        </section>
+
+    <section class="mb-5">
+        <div class="card bg-light">
+            <div class="card-body">
+                <form class="mb-4">
+                    <textarea class="form-control" rows="3" placeholder="댓글을 달아주세요."></textarea>
+                </form>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                    <div class="ms-3">
+                        <div class="fw-bold">Commenter Name</div>
+                        This is a sample comment.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="card mb-4">
+        <div class="card-header">Search</div>
+        <div class="card-body">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                <button class="btn btn-primary" id="button-search" type="button">검색</button>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">Categories</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">Web Design</a></li>
+                        <li><a href="#!">HTML</a></li>
+                        <li><a href="#!">Freebies</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!">JavaScript</a></li>
+                        <li><a href="#!">CSS</a></li>
+                        <li><a href="#!">Tutorials</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">Side Widget</div>
+        <div class="card-body">사이드위젯입니다.</div>
+    </div>
+{% endblock %}
