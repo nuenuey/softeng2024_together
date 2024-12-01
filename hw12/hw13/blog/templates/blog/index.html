@@ -1,0 +1,83 @@
+{% extends "blog/base.html" %}
+
+{% block title %}게시물 목록 - Blog{% endblock %}
+{% block header_title %}게시물 목록{% endblock %}
+
+{% block content %}
+    {% for p in posts %}
+        <div class="card mb-4">
+            <a href="{{ p.get_absolute_url }}">
+                <img class="img-fluid rounded" src="{% if p.head_image %}{{ p.head_image.url }}{% else %}https://picsum.photos/seed/{{ p.id }}/850/350{% endif %}" alt="게시물 이미지">
+            </a>
+            <div class="card-body">
+
+                <!-- 카테고리 뱃지 -->
+                {% if p.category %}
+                    <a href="{{ p.category.get_absolute_url }}">
+                        <span class="badge badge-secondary float-right">{{ p.category }}</span>
+                    </a>
+                {% else %}
+                    <span class="badge badge-secondary float-right">미분류</span>
+                {% endif %}
+
+                <h2 class="card-title h3">{{ p.title }}</h2>
+                {% if p.hook_text %}
+                    <h5 class="text-muted">{{ p.hook_text }}</h5>
+                {% endif %}
+                <p class="card-text">{{ p.content|truncatewords:30 }}</p>
+                <a class="btn btn-primary mb-3" href="{{ p.get_absolute_url }}">Read more →</a>
+                <div class="small text-muted">
+                    {{ p.created_at }} by <a href="#">{{ p.author|upper }}</a>
+                </div>
+
+                <!-- 태그 표시 -->
+                {% if p.tags.exists %}
+                    <div class="mt-2">
+                        Tags:
+                        {% for tag in p.tags.all %}
+                            <a href="/blog/tag/{{ tag.slug }}/" class="badge bg-light text-dark">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">게시물이 없습니다.</p>
+    {% endfor %}
+{% endblock %}
+
+{% block sidebar %}
+    <!-- 검색 위젯 -->
+    <div class="card mb-4">
+        <div class="card-header">Search</div>
+        <div class="card-body">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                <button class="btn btn-primary" id="button-search" type="button">검색</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카테고리 위젯 -->
+    <div class="card mb-4" id="categories-card">
+        <div class="card-header">Categories</div>
+        <div class="card-body">
+            <ul>
+                {% for category in categories %}
+                    <li>
+                        <a href="{{ category.get_absolute_url }}">{{ category.name }} ({{ category.post_set.count }})</a>
+                    </li>
+                {% endfor %}
+                <li>
+                    <a href="/blog/category/no_category/">미분류 ({{ no_category_post_count }})</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 사이드 위젯 -->
+    <div class="card mb-4">
+        <div class="card-header">Side Widget</div>
+        <div class="card-body">사이드위젯입니다</div>
+    </div>
+{% endblock %}
