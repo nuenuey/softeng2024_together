@@ -1,4 +1,5 @@
 import lgpio
+import time
  # GPIO 핀 설정
 LED_PIN = 18
  # GPIO 핸들 열기
@@ -8,6 +9,8 @@ lgpio.gpio_claim_output(h, LED_PIN)
  # LED 켜기
 lgpio.gpio_write(h, LED_PIN, 1)  # HIGH 신호
 print("LED ON")
+
+time.sleep(2)
  # LED 끄기
 lgpio.gpio_write(h, LED_PIN, 0)  # LOW 신호
 print("LED OFF")
