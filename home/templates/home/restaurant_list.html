@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>식당 리스트</title>
+</head>
+<body>
+    <h1>식당 리스트</h1>
+    <ul>
+        {% for restaurant in restaurant_list %}
+        <li>
+            <h2><a href="{% url 'home:restaurant_detail' pk=restaurant.pk %}">{{ restaurant.name }}</a></h2>
+            <p><strong>주소:</strong> {{ restaurant.address }}</p>
+            <p><strong>운영 시간:</strong> {{ restaurant.operating_hours }}</p>
+            <p><strong>메뉴:</strong> {{ restaurant.main_menu }}</p>
+            <p><strong>설명:</strong> {{ restaurant.description }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
